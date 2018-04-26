@@ -17,6 +17,6 @@ This playbook is for setting up version 6.x of the ELK Stack on a remote server.
  4. Cd into the directory, and run:
  `ansible-playbook site.yml`
  
- The plays in the playbook will run on the target server, installing ELK and the specified beats shippers. 
+ The plays in the playbook will run on the target server, installing ELK. 
  
 [site.yml]: https://github.com/maggiejg/ansible-playbook-elk-rhel.git
