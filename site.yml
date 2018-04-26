@@ -2,9 +2,9 @@
 #
 # Ansible Playbook to install ELK stack on RHEL
 #
-- hosts: elkservers
+- name: Install ELhosts: elkservers
   remote_user: ec2-user
-  become: yes
+  become: true
   become_user: root
   roles:
   - { role: java }
@@ -13,5 +13,5 @@
   #- { role: logstash }
   #- { role: metricbeat }
   #- { role: filebeat }
-  #- { role: x-pack}
+
 

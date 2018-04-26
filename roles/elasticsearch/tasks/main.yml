@@ -1,26 +1,28 @@
 ---
 #
-# Installing Elasticsearch 6.x with APT
+# Installing Elasticsearch 6.x with RPM
 #
 
-# Add Elasticsearch apt key
+# Add Elasticsearch rpm key
 
-- name: Add Elasticsearch apt key
-  apt_key:
-   url: "https://packages.elastic.co/GPG-KEY-elasticsearch"
+- name: Add Elasticsearch rpm key
+  rpm_key:
+   url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
    state: present
 
 # Add the ELK apt repo for version 6.x
 
 - name: Adding Elasticsearch repo
-  apt_repository:
-   repo: deb https://artifacts.elastic.co/packages/6.x/apt stable main
-   state: present
+  yum_repository:
+   baseurl: https://artifacts.elastic.co/packages/6.x/yum
+   gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+   gpgcheck: yes
+   enabled: yes
 
 # Installing Elasticsearch
 
 - name: Install Elasticsearch
-  apt:
+  yum:
    name: elasticsearch
    update_cache: yes
    
