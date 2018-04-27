@@ -7,13 +7,15 @@
 
 - name: Add Elasticsearch rpm key
   rpm_key:
-   url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
    state: present
+   key: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
 
 # Add the ELK apt repo for version 6.x
 
 - name: Adding Elasticsearch repo
   yum_repository:
+   name: elasticsearch
+   description: elasticsearch yum repo
    baseurl: https://artifacts.elastic.co/packages/6.x/yum
    gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
    gpgcheck: yes
@@ -23,7 +25,7 @@
 
 - name: Install Elasticsearch
   yum:
-   name: elasticsearch
+   name: elasticsearch-6.2.4
    update_cache: yes
    
 # Update Elasticsearch config file to allow access (to secure Elasticsearch, bind to 'localhost'). 
