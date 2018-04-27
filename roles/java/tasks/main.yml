@@ -19,6 +19,6 @@
 
 - name: Install Java 8
   yum:
-   name: jre-8u171-linux-x64.rpm
+   name: jre-8-linux-x64.rpm
    state: present
    update_cache: yes

@@ -10,7 +10,7 @@
    state: present
    key: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
 
-# Add the ELK apt repo for version 6.x
+# Add the ELK yum repo for version 6.x
 
 - name: Adding Elasticsearch repo
   yum_repository:
@@ -20,7 +20,8 @@
    gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
    gpgcheck: yes
    enabled: yes
-
+ 
+   
 # Installing Elasticsearch
 
 - name: Install Elasticsearch
